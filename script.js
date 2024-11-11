@@ -10,7 +10,7 @@ let computerChoice = null;
 let roundState = null;
 
 for (let round = 1; round < 6; round++) {
-    playerChoice = getPlayerChoice();
+    //playerChoice = getPlayerChoice();
     computerChoice = getComputerChoice();
     roundState = scoreRound(playerChoice, computerChoice);
     roundLogging(round, playerChoice, computerChoice, roundState, scorePlayer, scoreComputer);

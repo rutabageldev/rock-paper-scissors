@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+
+body {
+    background-color: #1F4CA6;
+    color: #F2F2F2;
+    flex-direction: column;
+    font-family: 'Open Sans', sans-serif;
+    padding: 20px;    
+}
+
+h1 {
+    font-size: clamp(40px, 4vw, 4vw);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.subheading {
+    font-size: 16px;
+    margin: 4px 0 4px 0;
+    text-align: center;
+}
+
+.top-rule {
+    align-self: center;
+    background-color: #060E40;
+    border: none;
+    border-radius: 4px;
+    height: 4px;
+    margin: 0 auto 24px;
+    width: 100%;
+}
+
+.main-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.info-container {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    margin-bottom: 8px;
+    width: 100%;
+}
+
+.player-container, .score-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.score, .player-choice, .computer-choice {
+    font-size: 8vw;
+    font-weight: 700;
+    margin: 0;
+}
+
+span {
+    font-size: 1.5vw;
+    font-weight: 600;
+}
+
+.status-bar {
+    background-color: #0D208C;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 40px 80px;
+    width: 100%;
+    padding: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+
+}
+
+.player-header {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 auto 24px;
+    width: 100%;
+}
+
+.button-container {
+    display: flex;
+    gap: 16px;
+    justify-content: space-evenly;
+    margin: 0 auto 40px;
+    width: 100%;
+}
+
+.choice-button {
+    aspect-ratio: 1/1;
+    background-color: #071359;
+    border: none;
+    border-radius: 8px;
+    color: #F2F2F2;
+    font-size: 10vw;
+    font-weight: 700;
+    min-width: 75px;
+    width: 100%;
+}
+
+.choice-button:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 4px 8px rgba (0, 0, 0,0.4);
+}
+
+.new-game {
+    background-color: #F2F2F2;
+    border: none;
+    border-radius: 4px;
+    color: #071359;
+    font-size: clamp(18px, 2vw, 4vw);
+    font-weight: 600;
+    margin: 0 auto;
+    padding: 12px 0;
+    width: 100%;
+}
+
+.new-game:hover {
+    background-color: #0D208C;
+    color:#F2F2F2
+}
