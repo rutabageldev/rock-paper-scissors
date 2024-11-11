@@ -1,20 +1,24 @@
-/*
-    Determine winner 
-    Winner score +1
-}
-*/
+const rockButton = document.querySelector("#rock");
+const paperButton = document.querySelector("#paper");
+const scissorsButton = document.querySelector("#scissors");
+
+rockButton.addEventListener("click", playRound);
+paperButton.addEventListener("click", playRound);
+scissorsButton.addEventListener("click", playRound);
+
 let scorePlayer = 0;
 let scoreComputer = 0;
+let round = 1;
 let playerChoice = null;
 let computerChoice = null;
 let roundState = null;
 
-for (let round = 1; round < 6; round++) {
+/*for (let round = 1; round < 6; round++) {
     //playerChoice = getPlayerChoice();
     computerChoice = getComputerChoice();
     roundState = scoreRound(playerChoice, computerChoice);
     roundLogging(round, playerChoice, computerChoice, roundState, scorePlayer, scoreComputer);
-}
+}*/
 
 function getComputerChoice() {
     let choice = Math.floor((Math.random() * 3)) + 1;
@@ -31,7 +35,17 @@ function getComputerChoice() {
     }
 }
 
-function getPlayerChoice() {
+function playRound(e) {
+    console.log(e);
+    console.log(e.target.id);
+    playerChoice = e.target.id;
+    computerChoice = getComputerChoice();
+    roundState = scoreRound(playerChoice, computerChoice);
+    roundLogging(round, playerChoice, computerChoice, roundState, scorePlayer, scoreComputer);
+    round++;
+}
+
+/*function getPlayerChoice() {
     let goodChoice = false;     //state variable that tracks validity of player's choice
     let playerChoice = prompt(`Please select one of the following:
         -Rock
@@ -50,7 +64,7 @@ function getPlayerChoice() {
         }
     }
     return playerChoice;
-}
+}*/
 
 function roundLogging(round, playerChoice, computerChoice, roundState, scorePlayer, scoreComputer) {
     console.log("round: " + round);
