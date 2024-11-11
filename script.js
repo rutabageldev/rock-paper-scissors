@@ -1,8 +1,4 @@
 /*
-Start game, round = 1
-For (1 =< round =< 5) {
-    Ask player for rock, paper, or scissors
-    Randomly generate computer choice
     Determine winner 
     Winner score +1
 }
@@ -11,12 +7,13 @@ let scorePlayer = 0;
 let scoreComputer = 0;
 let playerChoice = null;
 let computerChoice = null;
+let roundState = null;
 
 for (let round = 1; round < 6; round++) {
     playerChoice = getPlayerChoice();
     computerChoice = getComputerChoice();
-    //scoreRound(playerChoice, computerChoice);
-    roundLogging(round, playerChoice, computerChoice, scorePlayer, scoreComputer);
+    roundState = scoreRound(playerChoice, computerChoice);
+    roundLogging(round, playerChoice, computerChoice, roundState, scorePlayer, scoreComputer);
 }
 
 function getComputerChoice() {
@@ -55,12 +52,52 @@ function getPlayerChoice() {
     return playerChoice;
 }
 
-function roundLogging(round, playerChoice, computerChoice, scorePlayer, scoreComputer) {
+function roundLogging(round, playerChoice, computerChoice, roundState, scorePlayer, scoreComputer) {
     console.log("round: " + round);
     console.log("playerChoice: " + playerChoice);
     console.log("computerChoice: " + computerChoice);
+    console.log("roundState: " + roundState);
     console.log("scorePlayer: " + scorePlayer);
     console.log("scoreComputer: " + scoreComputer);
+}
+
+function scoreRound(playerChoice, computerChoice) {
+    switch (playerChoice) {
+        case 'rock':
+            switch (computerChoice) {
+                case 'rock':
+                    return 'tie';
+                case 'paper':
+                    scoreComputer++;
+                    return 'winComputer';
+                case 'scissors':
+                    scorePlayer++;
+                    return 'winPlayer';
+            }
+            break;
+        case 'paper':
+            switch (computerChoice) {
+                case 'rock':
+                    scorePlayer++;
+                    return 'winPlayer';    
+                case 'paper':
+                    return 'tie';
+                case 'scissors':
+                    scoreComputer++;
+                    return 'winComputer';
+            }
+        case 'scissors':
+            switch (computerChoice) {
+                case 'rock':
+                    scoreComputer++;
+                    return 'winComputer';   
+                case 'paper':
+                    scorePlayer++;
+                    return 'winPlayer';
+                case 'scissors':
+                    return 'tie';
+            }
+    }
 }
 
 function validateChoice(choice) {
